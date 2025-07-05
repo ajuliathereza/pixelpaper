@@ -3,71 +3,195 @@ const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
 const wallpaperGrid = document.getElementById('wallpaperGrid');
 
-// Sample wallpaper data - In a real app, this would come from a database
+// Dados dos wallpapers locais
 const wallpapers = [
+    // Wallpapers de Anime
     {
         id: 1,
-        title: 'Cyberpunk City',
-        image: 'wallpapers/cyberpunk/cyber1.jpg',
-        category: 'cyberpunk',
+        title: 'Anime Wallpaper 1',
+        image: 'wallpapers/anime/anime1.jpg',
+        category: 'anime',
         isPopular: true,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?cyberpunk'
+        downloadUrl: 'wallpapers/anime/anime1.jpg'
     },
     {
         id: 2,
-        title: 'Anime Sunset',
-        image: '',
+        title: 'Anime Mobile 1',
+        image: 'wallpapers/mobile/anime/animemobile1.png',
         category: 'anime',
         isPopular: true,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?anime'
+        downloadUrl: 'wallpapers/mobile/anime/animemobile1.png',
+        isMobile: true
     },
     {
         id: 3,
-        title: 'Hacker Terminal',
-        image: 'https://source.unsplash.com/random/600x400/?hacker,code',
-        category: 'hacker',
+        title: 'Anime Mobile 2',
+        image: 'wallpapers/mobile/anime/animemobile2.png',
+        category: 'anime',
         isPopular: false,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?hacker,code'
+        downloadUrl: 'wallpapers/mobile/anime/animemobile2.png',
+        isMobile: true
     },
+    
+    // Wallpapers de GameOculto
     {
         id: 4,
-        title: 'Gaming Setup',
-        image: 'https://source.unsplash.com/random/600x400/?gaming',
-        category: 'gamer',
+        title: 'GameOculto 1',
+        image: 'wallpapers/gameoculto/gameoculto1.png',
+        category: 'gameoculto',
         isPopular: true,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?gaming'
+        downloadUrl: 'wallpapers/gameoculto/gameoculto1.png'
     },
     {
         id: 5,
-        title: 'Neon Lights',
-        image: 'https://source.unsplash.com/random/600x400/?neon',
-        category: 'cyberpunk',
-        isPopular: false,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?neon'
+        title: 'GameOculto 2',
+        image: 'wallpapers/gameoculto/gameoculto2.png',
+        category: 'gameoculto',
+        isPopular: true,
+        downloadUrl: 'wallpapers/gameoculto/gameoculto2.png'
     },
     {
         id: 6,
-        title: 'Anime Girl',
-        image: 'https://source.unsplash.com/random/600x400/?anime,girl',
-        category: 'anime',
+        title: 'GameOculto 3',
+        image: 'wallpapers/gameoculto/gameoculto3.png',
+        category: 'gameoculto',
         isPopular: false,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?anime,girl'
+        downloadUrl: 'wallpapers/gameoculto/gameoculto3.png'
     },
     {
         id: 7,
-        title: 'Matrix Code',
-        image: 'https://source.unsplash.com/random/600x400/?matrix',
-        category: 'hacker',
-        isPopular: true,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?matrix'
+        title: 'GameOculto 4',
+        image: 'wallpapers/gameoculto/gameoculto4.png',
+        category: 'gameoculto',
+        isPopular: false,
+        downloadUrl: 'wallpapers/gameoculto/gameoculto4.png'
     },
     {
         id: 8,
-        title: 'Game Controller',
-        image: 'https://source.unsplash.com/random/600x400/?game,controller',
-        category: 'gamer',
+        title: 'GameOculto 5',
+        image: 'wallpapers/gameoculto/gameoculto5.png',
+        category: 'gameoculto',
         isPopular: false,
-        downloadUrl: 'https://source.unsplash.com/random/1920x1080/?game,controller'
+        downloadUrl: 'wallpapers/gameoculto/gameoculto5.png'
+    },
+    
+    // Wallpapers de Cyberpunk
+    {
+        id: 9,
+        title: 'Cyberpunk Mobile',
+        image: 'wallpapers/mobile/cyberpunk/cybermobile1.png',
+        category: 'cyberpunk',
+        isPopular: true,
+        downloadUrl: 'wallpapers/mobile/cyberpunk/cybermobile1.png',
+        isMobile: true
+    },
+    
+    // Wallpapers de Natureza
+    {
+        id: 10,
+        title: 'Natureza',
+        image: 'wallpapers/nature/folhas1.png',
+        category: 'nature',
+        isPopular: true,
+        downloadUrl: 'wallpapers/nature/folhas1.png'
+    },
+    
+    // Wallpapers de Tecnologia
+    {
+        id: 11,
+        title: 'Tecnologia 1',
+        image: 'wallpapers/tech/tech1.jpg',
+        category: 'tech',
+        isPopular: true,
+        downloadUrl: 'wallpapers/tech/tech1.jpg'
+    },
+    {
+        id: 12,
+        title: 'Tecnologia 2',
+        image: 'wallpapers/tech/tech2.jpg',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech2.jpg'
+    },
+    {
+        id: 13,
+        title: 'Tecnologia 3',
+        image: 'wallpapers/tech/tech3.jpg',
+        category: 'tech',
+        isPopular: true,
+        downloadUrl: 'wallpapers/tech/tech3.jpg'
+    },
+    {
+        id: 14,
+        title: 'Tecnologia 4',
+        image: 'wallpapers/tech/tech4.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech4.png'
+    },
+    {
+        id: 15,
+        title: 'Tecnologia 5',
+        image: 'wallpapers/tech/tech5.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech5.png'
+    },
+    {
+        id: 16,
+        title: 'Tecnologia 6',
+        image: 'wallpapers/tech/tech6.png',
+        category: 'tech',
+        isPopular: true,
+        downloadUrl: 'wallpapers/tech/tech6.png'
+    },
+    {
+        id: 17,
+        title: 'Tecnologia 7',
+        image: 'wallpapers/tech/tech7.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech7.png'
+    },
+    {
+        id: 18,
+        title: 'Tecnologia 8',
+        image: 'wallpapers/tech/tech8.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech8.png'
+    },
+    {
+        id: 19,
+        title: 'Tecnologia 9',
+        image: 'wallpapers/tech/tech9.png',
+        category: 'tech',
+        isPopular: true,
+        downloadUrl: 'wallpapers/tech/tech9.png'
+    },
+    {
+        id: 20,
+        title: 'Tecnologia 10',
+        image: 'wallpapers/tech/tech10.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech10.png'
+    },
+    {
+        id: 21,
+        title: 'Tecnologia 11',
+        image: 'wallpapers/tech/tech11.png',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech11.png'
+    },
+    {
+        id: 22,
+        title: 'Tecnologia 12',
+        image: 'wallpapers/tech/tech12.jpg',
+        category: 'tech',
+        isPopular: false,
+        downloadUrl: 'wallpapers/tech/tech12.jpg'
     }
 ];
 
@@ -176,74 +300,165 @@ function displayWallpapers(wallpapersToShow) {
     });
 }
 
-// Initialize the page
+// Inicializa a página
 function init() {
-    // Check if we're on the home page
-    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-        // Show all wallpapers on home page
-        displayWallpapers(wallpapers);
-    } else if (window.location.pathname.includes('popular.html')) {
-        // Show only popular wallpapers
-        const popularWallpapers = wallpapers.filter(wallpaper => wallpaper.isPopular);
+    // Verifica se estamos na página inicial
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '') {
+        // Mostra apenas wallpapers que não são móveis na página inicial
+        const desktopWallpapers = wallpapers.filter(wallpaper => !wallpaper.isMobile);
+        displayWallpapers(desktopWallpapers);
+    } 
+    // Página de wallpapers populares desktop
+    else if (window.location.pathname.endsWith('popular.html')) {
+        // Mostra apenas wallpapers populares desktop
+        const popularWallpapers = wallpapers.filter(wallpaper => 
+            wallpaper.isPopular && !wallpaper.isMobile
+        );
         displayWallpapers(popularWallpapers);
-    } else if (window.location.pathname.includes('categories.html')) {
-        // Handle category filtering
+    } 
+    // Página de wallpapers populares mobile
+    else if (window.location.pathname.endsWith('mobile-popular.html')) {
+        // Mostra apenas wallpapers populares mobile
+        const popularWallpapers = wallpapers.filter(wallpaper => 
+            wallpaper.isPopular && wallpaper.isMobile
+        );
+        displayWallpapers(popularWallpapers);
+    }
+    // Página de categorias desktop
+    else if (window.location.pathname.includes('categories.html')) {
+        // Filtra por categoria
         const urlParams = new URLSearchParams(window.location.search);
         const category = urlParams.get('category');
         
         if (category) {
             const filteredWallpapers = wallpapers.filter(wallpaper => 
-                wallpaper.category === category
+                wallpaper.category === category && !wallpaper.isMobile
             );
+            
             displayWallpapers(filteredWallpapers);
             
-            // Update page title
+            // Atualiza o título da página
             const categoryTitle = document.createElement('h2');
-            categoryTitle.textContent = `Categoria: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+            categoryTitle.textContent = `Categoria: ${getCategoryDisplayName(category)}`;
             wallpaperGrid.parentNode.insertBefore(categoryTitle, wallpaperGrid);
         } else {
-            // No specific category selected, show all categories
+            // Nenhuma categoria específica selecionada, mostra todas as categorias desktop
             displayCategories();
         }
     }
+    // Página de categorias mobile
+    else if (window.location.pathname.includes('mobile-categories.html')) {
+        // Filtra por categoria
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        
+        if (category) {
+            const filteredWallpapers = wallpapers.filter(wallpaper => 
+                wallpaper.category === category && wallpaper.isMobile
+            );
+            
+            displayWallpapers(filteredWallpapers);
+            
+            // Atualiza o título da página
+            const categoryTitle = document.createElement('h2');
+            categoryTitle.textContent = `Categoria: ${getCategoryDisplayName(category)}`;
+            wallpaperGrid.parentNode.insertBefore(categoryTitle, wallpaperGrid);
+        } else {
+            // Nenhuma categoria específica selecionada, mostra todas as categorias mobile
+            displayCategories(true);
+        }
+    }
+    // Página de wallpapers mobile
+    else if (window.location.pathname.includes('mobile.html')) {
+        // Mostra apenas wallpapers móveis
+        const mobileWallpapers = wallpapers.filter(wallpaper => wallpaper.isMobile);
+        displayWallpapers(mobileWallpapers);
+    }
 }
 
-// Function to display categories
-function displayCategories() {
-    const categories = [
-        { id: 'anime', name: 'Anime', count: wallpapers.filter(w => w.category === 'anime').length },
-        { id: 'cyberpunk', name: 'Cyberpunk', count: wallpapers.filter(w => w.category === 'cyberpunk').length },
-        { id: 'hacker', name: 'Hacker', count: wallpapers.filter(w => w.category === 'hacker').length },
-        { id: 'gamer', name: 'Gamer', count: wallpapers.filter(w => w.category === 'gamer').length }
-    ];
+// Função auxiliar para obter o nome de exibição de uma categoria
+function getCategoryDisplayName(categoryId) {
+    const categoryNames = {
+        'anime': 'Anime',
+        'cyberpunk': 'Cyberpunk',
+        'gameoculto': 'GameOculto',
+        'tech': 'Tecnologia',
+        'nature': 'Natureza',
+        'mobile': 'Mobile'
+    };
+    return categoryNames[categoryId] || categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+}
+
+// Função para exibir as categorias
+function displayCategories(isMobile = false) {
+    // Obtém todas as categorias únicas dos wallpapers
+    const allCategories = [...new Set(wallpapers.map(w => w.category))];
     
+    // Cria um array de categorias com contagem de wallpapers
+    const categories = allCategories.map(categoryId => {
+        const count = wallpapers.filter(w => 
+            w.category === categoryId && 
+            (isMobile ? w.isMobile : !w.isMobile)
+        ).length;
+        
+        return {
+            id: categoryId,
+            name: getCategoryDisplayName(categoryId),
+            count: count
+        };
+    }).filter(category => category.count > 0); // Filtra categorias vazias
+    
+    // Ordena as categorias por nome
+    categories.sort((a, b) => a.name.localeCompare(b.name));
+    
+    // Verifica se há categorias para exibir
+    if (categories.length === 0) {
+        wallpaperGrid.innerHTML = '<p class="no-results">Nenhuma categoria disponível no momento.</p>';
+        return;
+    }
+    
+    // Determina o prefixo da URL com base na página atual
+    const isMobilePage = window.location.pathname.includes('mobile-') || 
+                        window.location.pathname.includes('mobile.html');
+    const prefix = isMobilePage ? 'mobile-' : '';
+    
+    // Cria o HTML das categorias
     const categoriesHTML = categories.map(category => `
         <div class="category-card" style="--accent: ${getCategoryColor(category.id)};">
             <h3>${category.name}</h3>
-            <p>${category.count} wallpapers disponíveis</p>
-            <a href="categories.html?category=${category.id}" class="category-link"></a>
+            <p>${category.count} wallpaper${category.count !== 1 ? 's' : ''} disponível${category.count !== 1 ? 's' : ''}</p>
+            <a href="${prefix}categories.html?category=${category.id}" class="category-link"></a>
         </div>
     `).join('');
     
     wallpaperGrid.innerHTML = categoriesHTML;
     
-    // Add click event to category cards
+    // Adiciona evento de clique aos cards de categoria
     document.querySelectorAll('.category-card').forEach((card, index) => {
-        card.addEventListener('click', () => {
-            window.location.href = `categories.html?category=${categories[index].id}`;
+        card.addEventListener('click', (e) => {
+            // Evita navegação se o clique foi em um link dentro do card
+            if (e.target.tagName === 'A') return;
+            
+            const categoryId = categories[index].id;
+            const baseUrl = window.location.pathname.includes('mobile.html') ? 'mobile-categories.html' : 'categories.html';
+            window.location.href = `${baseUrl}?category=${categoryId}`;
         });
     });
 }
 
-// Helper function to get category color
+// Função auxiliar para obter a cor de uma categoria
 function getCategoryColor(category) {
     const colors = {
-        'anime': '#ff6b6b',
-        'cyberpunk': '#6b5b95',
-        'hacker': '#88b04b',
-        'gamer': '#ff6f61'
+        'anime': '#ff6b6b',        // Vermelho suave
+        'cyberpunk': '#9c27b0',    // Roxo
+        'gameoculto': '#673ab7',   // Roxo mais escuro
+        'tech': '#2196f3',         // Azul
+        'nature': '#4caf50',       // Verde
+        'mobile': '#03a9f4',       // Azul claro
+        'hacker': '#4caf50',       // Verde (para compatibilidade)
+        'gamer': '#ff5722'         // Laranja (para compatibilidade)
     };
-    return colors[category] || '#00f0ff';
+    return colors[category] || '#607d8b'; // Azul acinzentado como padrão
 }
 
 // Initialize the page when DOM is loaded
@@ -259,7 +474,11 @@ document.addEventListener('click', (e) => {
         // Create a temporary anchor element
         const a = document.createElement('a');
         a.href = downloadUrl;
-        a.download = `pixelpaper-${fileName}.jpg`;
+        
+        // Preserva a extensão original do arquivo
+        const fileExtension = fileName.split('.').pop();
+        a.download = `pixelpaper-${fileName}`.replace(`.${fileExtension}`, '') + `.${fileExtension}`;
+        
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
