@@ -37,17 +37,5 @@ JavaScript
 
 Estrutura de páginas responsiva
 
-Possível uso de frameworks/libraries (se aplicável ao projeto)
 
-(Se o repositório incluir backend ou geração automatizada de páginas, adicione aqui as tecnologias específicas — ex: Next.js, Gatsby, Hugo, etc.)
-
-📁 Estrutura do Repositório
-/
-├── assets/             # Imagens e gráficos
-├── css/                # Estilos
-├── js/                 # Scripts
-├── wallpapers/         # Wallpapers (originais / fontes)
-├── index.html          # Página principal
-├── README.md           # Este arquivo
-└── LICENSE             # Licença do projeto
 
